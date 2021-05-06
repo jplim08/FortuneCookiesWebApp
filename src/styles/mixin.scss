@@ -1,0 +1,10 @@
+@mixin loop($start:1, $max:5, $interval:1, $prefix:"", $suffix:"", $prop:"", $unit:"px", $imp:"!important"){
+    $int: $start * $interval;
+    @while $int <= $max {
+        #{$prefix}#{$int}#{$suffix} {
+            #{$prop}: #{$int}#{$unit} #{$imp};
+        }
+        $start: $start + 1;
+        $int: $start * $interval;
+    }
+}

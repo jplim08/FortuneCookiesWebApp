@@ -1,0 +1,40 @@
+.template{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    padding: 20px;
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url('/assets/images/bgtemplate.jpg');
+}
+
+.title{
+  font-size: 28px;
+  text-align: center;
+  background: -webkit-linear-gradient(#fff, #909090);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media(min-width: 768px){
+  .title{
+      font-size: 55px;
+  }
+}
+@media(min-width: 1440px){
+  .title{
+      font-size: 82px;
+  }
+}
+
+
+@media(min-width: 2560px){
+  .title{
+      font-size: 162px;
+  }
+}

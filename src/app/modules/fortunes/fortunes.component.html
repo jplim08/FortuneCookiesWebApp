@@ -1,0 +1,66 @@
+
+<div>
+    <div class="bodyContainer">
+        <div class="descriptionContainer">
+            <h3 class="description">Everyone loves cracking open a fortune cookie at the end of a meal... Now you can open as many as you want!            </h3>
+        </div>
+        <div class="fcContatiner">
+            <div style="position: relative;">
+                <div class="d-flex justify-content-center align-items-center fortuneTextContainer">
+                    <h2 style="margin:0px !important" class="fortuneMessage" *ngIf="fortune.message">{{fortune.message}}</h2>
+                    <form style="width: 100%;" *ngIf="canUpdateFortune" [formGroup]="addFortune">
+                        <div class="form-group m-0">
+                            <input style="margin:0px !important;" class="form-control mb-10 box-size mt-10 fortuneInput" type="text" id="fortune_text"
+                                formControlName="fortune_text" [ngClass]="{'error-border': !addFortune.controls.fortune_text.valid && addFortune.controls.fortune_text.touched}">
+                                <img class="error" src="../../../../assets//images//error.png"
+                                    *ngIf="!addFortune.controls.fortune_text.valid && addFortune.controls.fortune_text.touched">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <img style="width: 100%;"  src="/assets/images/fortunecookiesopen.png" alt="">
+            
+            
+            
+        </div>
+
+        <!-- <div style="width: 300px; height: 300px;">
+            <div style="position: absolute;">
+                <div class="d-flex" style="width: 600px; height: 300px;">
+                    <img width="300px" src="/assets/images/fcl.png" alt="">
+                    <img width="600px" style="position: absolute; top: -165px; left: -26px;" src="/assets/images/fortunetext.png" alt="">
+                    <div class="d-flex justify-content-center align-items-center" style=" position: absolute; top: -128px; left: 41px; width: 500px; height: 76px;">
+                        <h2 style="color:black; font-size: 24px; text-align: center;" *ngIf="fortune.message">{{fortune.message}}</h2>
+                        
+                        <form *ngIf="canUpdateFortune" [formGroup]="addFortune">
+                            <div class="form-group m-0">
+                                <input style="width: 500px; height: 80px;" class="form-control mb-10 box-size mt-10" type="text" id="fortune_text"
+                                    formControlName="fortune_text" [ngClass]="{'error-border': !addFortune.controls.fortune_text.valid && addFortune.controls.fortune_text.touched}">
+                                    <img class="error" src="../../../../assets//images//error.png"
+                                        *ngIf="!addFortune.controls.fortune_text.valid && addFortune.controls.fortune_text.touched">
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <img width="300px" src="/assets/images/fcor.png" alt="">
+                </div>
+            </div>
+
+        </div> -->
+    </div>
+    <div>
+        <h2 *ngIf="!israndfortune && !canUpdateFortune" class="label">Ask the Fortune Cookie</h2>
+        <h2 *ngIf="israndfortune && !canUpdateFortune" class="label">Want to update this fortune?</h2>
+    </div>
+    <div *ngIf="!israndfortune && !canUpdateFortune" class="d-flex justify-content-center">
+        <button type="button" (click)="openFortuneCookie()" class="btn ">Crack open your cookie</button>
+    </div>
+    <div *ngIf="israndfortune && !canUpdateFortune" class="d-flex justify-content-center">
+        <button type="button" style="width:100px" (click)="turnIntoUpdate()" class="btn mr-20 ">Yes</button>
+        <button type="button" style="width:100px" (click)="skipUpdate()" class="btn ml-20">NO</button>
+    </div>
+    <div *ngIf="!israndfortune && canUpdateFortune" class="d-flex justify-content-center">
+        <button type="button" (click)="updateFortuneCookie()" class="btn mr-20">Update Fortune</button>
+        <button type="button" (click)="cancelUpdate()" class="btn ml-20">Cancel</button>
+    </div>
+</div>
